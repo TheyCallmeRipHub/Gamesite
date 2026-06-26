@@ -2,9 +2,12 @@
 	auto_https off
 }
 
-0.0.0.0:{$PORT:80} {
+:80 {
+	bind 0.0.0.0
 	root * .
-	@notFound not file {path}
-	rewrite @notFound /index.html
 	file_server
+	handle_errors {
+		rewrite * /index.html
+		file_server
+	}
 }
