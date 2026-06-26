@@ -1,5 +1,6 @@
 0.0.0.0:{$PORT:80} {
 	root * .
+	@notFound not file {path}
+	rewrite @notFound /index.html
 	file_server
-	try_files {path} /index.html
 }
