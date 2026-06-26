@@ -1,0 +1,5 @@
+0.0.0.0:{$PORT:80} {
+	root * .
+	file_server
+	try_files {path} /index.html
+}
